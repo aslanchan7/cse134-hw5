@@ -288,11 +288,14 @@ project-card-info > p {
 }
 
 form {
-    max-width: 800px;
+    max-width: 50rem;
+    /* max-width: 800px; */
     margin-inline: auto;
 }
 
 fieldset {
+    box-sizing: border-box;
+    margin: 0;
     border-color: var(--color-primary);
     padding-inline: 2rem;
     padding-block: 2rem;
@@ -341,6 +344,42 @@ label-input-container {
     display: flex;
     flex-direction: column;
     margin-block-end: 1rem;
+}
+
+random-facts {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--color-primary);
+    max-width: 50rem;
+    margin-inline: auto;
+    margin-block: 1rem;
+    padding: 1rem 2rem;
+
+    button {
+        display: block;
+        max-width: fit-content;
+
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.8em 1em;
+        border-radius: 8px;
+        border: 2px solid var(--color-secondary);
+        background: var(--color-secondary-20);
+        text-decoration-line: none;
+        color: var(--color-text);
+    }
+
+    button:hover {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+        cursor: pointer;
+    }
+
+    button:focus {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+        cursor: pointer;
+    }
 }
 
 footer {
