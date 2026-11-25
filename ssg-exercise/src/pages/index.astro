@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Aslan's Portfolio">
+	<noscript>Your browser does not support JavaScript!</noscript>
+	<header>
+		<nav>
+			<a href="#about">About</a>
+			<a href="#projects">Projects</a>
+			<!-- <a href="#contact">Contact</a> -->
+			<a href="/form-no-js.html">Contact &lpar;no JS&rpar;</a>
+			<a href="/form-with-js.html">Contact &lpar;JS&rpar;</a>
+		</nav>
+		<button id="theme-button" type="button" onclick="ChangeTheme()">Dark Theme</button>
+	</header>
+
+	<main>
+		<landing-page-section>
+			<landing-page-intro>
+				<h1>Hi, I'm Aslan!</h1>
+				<h2>Game Developer</h2>
+				<landing-page-buttons>
+					<a href="#projects">Jump To Projects</a>
+					<a href="">View Resume</a>
+				</landing-page-buttons>
+				<p>Welcome to my portfolio website! Below you can find some of my projects! Feel free to reach out via email as that is the fastest way to reach me.</p>
+			</landing-page-intro>
+			<img id="landing-page-img" src="/assets/images/aslan-chan.jpg" />
+		</landing-page-section>
+
+		<br />
+
+		<picture class="polaroid-picture">
+			<source media="(min-width:650px)" srcset="/assets/images/about-image-2.webp" />
+			<img src="/assets/images/about-image-1.webp" />
+		</picture>
+
+		<about-me-section id="about">
+			<h2>About Me</h2>
+			<section>
+				<p>Hi, I'm Aslan! I'm a <b>UI Programmer</b> for games and I do such and such. This is just a <em>temporary description</em>.</p>
+			</section>
+			<section>
+				<p>You can learn more about me <i>here</i>.</p>   
+			</section>
+			<section>
+				<p><strong>These are some projects that I am proud of.</strong></p>
+			</section>
+		</about-me-section>
+
+		<h2 id="projects">Projects</h2>
+		<project-cards-section>
+			<a class="project-card" href="/project-details">
+				<img src="/assets/images/way-of-feng-shui.png" />
+				<project-card-info>
+					<p>Team Size: 10</p> 
+					<p>Role: XXXX</p> 
+					<p>Time Frame: 6 weeks</p>
+				</project-card-info>
+				<h3>Project Title</h3>
+				<p>Hello this is some description about my project</p>
+			</a>
+			<a class="project-card" href="/project-details">
+				<img src="/assets/images/way-of-feng-shui.png" />
+				<project-card-info>
+					<p>Team Size: 10</p> 
+					<p>Role: XXXX</p> 
+					<p>Time Frame: 6 weeks</p>
+				</project-card-info>
+				<h3>Project Title</h3>
+				<p>Hello this is some description about my project</p>
+			</a>
+			<a class="project-card" href="/project-details">
+				<img src="/assets/images/way-of-feng-shui.png" />
+				<project-card-info>
+					<p>Team Size: 10</p> 
+					<p>Role: XXXX</p> 
+					<p>Time Frame: 6 weeks</p>
+				</project-card-info>
+				<h3>Project Title</h3>
+				<p>Hello this is some description about my project</p>
+			</a>
+		</project-cards-section>
+
+		<button id="load-more-button">Load More</button>
+
+		<template>
+			<a class="project-card" href="/project-details">
+				<img src="/assets/images/way-of-feng-shui.png" />
+				<project-card-info>
+					<p>Team Size: 10</p> 
+					<p>Role: XXXX</p> 
+					<p>Time Frame: 6 weeks</p>
+				</project-card-info>
+				<h3>Project Title</h3>
+				<p>Hello this is some description about my project</p>
+			</a>
+		</template>
+
+		<form id="contact">
+			<fieldset>
+				<legend>Contact Me</legend>
+				<label-input-container>
+					<label for="email-field">Email</label>
+					<input id="email-field" type="email" />
+				</label-input-container>
+				<label-input-container>
+					<label for="subject-field">Subject</label>
+					<input id="subject-field" type="text" />
+				</label-input-container>
+				<label-input-container>
+					<label for="message-field">Message</label>
+					<textarea id="message-field"></textarea>
+				</label-input-container>
+				<button command="show-modal" commandfor="confirmation-dialog">Send Email!</button>
+			</fieldset>
+		</form>
+
+		<dialog id="confirmation-dialog">
+			<p>Email has been sent!</p>
+			<button commandfor="confirmation-dialog" command="close">Close</button>
+		</dialog>
+
+		<script>
+			let canvas = document.getElementById("my-test-canvas");
+			let ctx = canvas.getContext("2d");
+			ctx.fillStyle = "#000000";
+			// ctx.fillRect(0, 0, 80, 80);
+			ctx.fillRect(0, 20, 100, 100);
+		</script>
+
+		<random-facts>
+			<noscript>Enable JavaScript to load live data for this widget.</noscript>
+			<button id="toggle-compact" type="button" aria-pressed="false">Toggle Compact Fact Box</button>
+		</random-facts>
+	</main>
+</Layout>
