@@ -28,6 +28,7 @@ class RandomFacts extends HTMLElement {
 
         this.button.addEventListener('click', () => this.loadFact());
         
+        this.toggleAttribute("compact", this.readPanelMode() !== "expanded");
         this.detailText.hidden = this.hasAttribute('compact');
 
         this.loadFact();
@@ -72,6 +73,28 @@ class RandomFacts extends HTMLElement {
             this.button.disabled = false;
         }
     }
+
+    readPanelMode() {
+        try {
+            const value = localStorage.getItem("hw5-fact-panel-mode");
+            return value === "compact" || value === "expanded" ? value : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    savePanelMode(mode) {
+        try {
+            localStorage.setItem("hw5-fact-panel-mode", mode);
+        } catch (error) {
+            console.log("Could not save the panel mode.", error);
+        }
+    }
+ 
+    changePanelMode() {
+        const isCompact = this.toggleAttribute("compact");
+        this.savePanelMode(isCompact ? "compact" : "expanded");
+    }
 }
 
 
@@ -81,5 +104,5 @@ const toggleBtn = document.querySelector('#toggle-compact');
 const facts = document.querySelector('random-facts');
 
 toggleBtn.addEventListener('click', () => {
-    facts.toggleAttribute('compact');
+    facts.changePanelMode();
 });

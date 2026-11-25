@@ -347,6 +347,9 @@ label-input-container {
 }
 
 random-facts {
+    --facts-background: var(--color-bg);
+    --facts-text: var(--color-text);
+
     display: block;
     box-sizing: border-box;
     border: 2px solid var(--color-primary);
@@ -354,6 +357,9 @@ random-facts {
     margin-inline: auto;
     margin-block: 1rem;
     padding: 1rem 2rem;
+
+    background-color: var(--facts-background, #ffffff);
+    color: var(--facts-text, #000000);
 
     button {
         display: block;
@@ -380,6 +386,10 @@ random-facts {
         color: var(--color-bg);
         cursor: pointer;
     }
+}
+
+random-facts:not(:defined) button {
+    display: none
 }
 
 footer {
